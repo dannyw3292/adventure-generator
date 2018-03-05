@@ -11,6 +11,7 @@
     <script>
         $(function(){
           $('p').hide();
+
           $('button').click(function(){
             
             var name = $('#name').val()
@@ -23,20 +24,35 @@
             
             $('h2').html(story);
             console.log(color)
+            
             $('body').css('background-color',color)
             if(color=="lightgreen"){
               $('#img1').show();
+              $('#img2').hide()
+              $('#img3').hide()
+              // if(color=="orange"){
+              //   // $('#img1').hide()
+              //   $('#img2').show()
+              // }
+            }
+            else if(color=="orange"){
+              $('#img1').hide();
+              $('#img2').show();
+              $('#img3').hide()
             }
             else{
-              $('p').hide()
+              $('#img1').hide();
+              $('#img2').hide()
+              $('#img3').show()
             }
             
           })
               //var img = $('#img') how would it be dependent on color info set by user?
         
 //change background color to be dependent on input
-/*note to self, conditionals are needed for level to influence character picture shown
-also needed for a character to show dependent on color, 1 color. green = goblin, any other color gives a default drawing.
+/*note to self, IF BROKEN, UNFUG THIS BY MONDAY
+level influences character picture shown, lvl 1-10 = weaker img, lvl 11-20 = stronger?
+done, 1 more picture eeded - also needed for a character to show dependent on color, 1 color. green = goblin, any other color gives a default drawing.
 done - figure out how to get the drawings to be generated. - give it an id in body and a var in script?
 */
 
@@ -50,7 +66,13 @@ done - figure out how to get the drawings to be generated. - give it an id in bo
   Color <input id="color"><br>
   <!--testing for now to get img to show up-->
   <p id='img1'>
-    <img src="sep11generator.png" alt="Image" style="width:400px;height:300px;">
+    <img id="img1" src="sep11-generator1.png" alt="Image" style="width:400px;height:300px;">
+  </p>
+  <p id='img2'>
+    <img src="sep11-generator2.png" alt="Image" style="width:400px;height:300px;">
+  </p>
+  <p id='img3'>
+    <img src="sep11-generator3.png" alt="Image" style="width:400px;height:300px;">
   </p>
   <button>Generate your character! </button>
   <h2></h2>
